@@ -8,7 +8,7 @@
 </head>
 <body>
     <script>
-        let getComputedChoice(){
+        function getComputedChoice(){
             let choice = Math.floor(Math.random() * 3)
             if choice == 0
                 return "Rock"
@@ -17,6 +17,17 @@
             else 
                 return "Paper"
         }
+
+        function playRound(playerSelection, computerSelection){
+            if (playerSelection.equalsIgnoreCase("rock") && computerSelection.equalsIgnoreCase("scissors")) || (playerSelection.equalsIgnoreCase("scissors") && computerSelection.equalsIgnoreCase("paper")) || (playerSelection.equalsIgnoreCase("paper") && computerSelection.equalsIgnoreCase("rock"))
+                return "You Won! " + playerSelection + " beats " + computerSelection
+            else if playerSelection.equalsIgnoreCase(computerSelection)
+                return "You Tied!"
+            else
+                reutnr "You Lost! " + computerSelection + " beats " + playerSelection
+        }
+
+        
     </script>
 </body>
 </html>
