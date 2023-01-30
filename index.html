@@ -10,24 +10,34 @@
     <script>
         function getComputedChoice(){
             let choice = Math.floor(Math.random() * 3)
-            if choice == 0
+            if (choice == 0)
                 return "Rock"
-            else if choice == 1 
+            else if (choice == 1)
                 return "Scissors"
             else 
                 return "Paper"
         }
 
         function playRound(playerSelection, computerSelection){
-            if (playerSelection.equalsIgnoreCase("rock") && computerSelection.equalsIgnoreCase("scissors")) || (playerSelection.equalsIgnoreCase("scissors") && computerSelection.equalsIgnoreCase("paper")) || (playerSelection.equalsIgnoreCase("paper") && computerSelection.equalsIgnoreCase("rock"))
+            if ((playerSelection.toUpperCase() === "rock" && computerSelection.toUpperCase() === "scissors") || (playerSelection.toUpperCase() === "scissors" && computerSelection.toUpperCase() === "paper") || (playerSelection.toUpperCase() === "paper" && computerSelection.toUpperCase() === "rock"))
                 return "You Won! " + playerSelection + " beats " + computerSelection
-            else if playerSelection.equalsIgnoreCase(computerSelection)
+            else if (playerSelection.toUpperCase() === (computerSelection))
                 return "You Tied!"
             else
-                reutnr "You Lost! " + computerSelection + " beats " + playerSelection
+                return "You Lost! " + computerSelection + " beats " + playerSelection
         }
 
-        
+        function game(){
+            console.log("Welcome to Rock Paper Scissors!")
+            for (let i=0;i<5;i++){
+                let userSelection = prompt("Round "+(i+1) + ":\nEnter your choice:")
+                let computerSelection = getComputedChoice()
+                let result = playRound(userSelection, computerSelection)
+                console.log(result)
+            }
+        }
+        game()
+
     </script>
 </body>
 </html>
